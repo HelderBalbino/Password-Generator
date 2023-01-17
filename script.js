@@ -103,6 +103,20 @@ function getPasswordOptions() {
     );
   }
 }
+// Prompts the user to choose numbers, lowercase, uppercase, special characters.
+let upperChar = confirm('Click OK to include uppercase characters.');
+let lowerChar = confirm('Click OK to include lowercase characters.');
+let numberChar = confirm('Click OK to include Numbers.');
+let specialChar = confirm('Click OK to include special characters.');
+
+// ! while loop to request user to select one character type.
+while (!upperChar && !lowerChar && !numberChar && !specialChar) {
+  alert('Please select one character type.');
+  specialChar = confirm('Click OK to include special characters.');
+  numberChar = confirm('Click OK to include Number.');
+  lowerChar = confirm('Click OK to include lowercase characters.');
+  upperChar = confirm('Click OK to include uppercase characters.');
+}
 
 // Function for getting a random element from an array
 function getRandom(arr) {}
