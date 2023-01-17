@@ -135,8 +135,40 @@ function getRandom(arr) {
   return arr[randomIndex];
 }
 
-// Function to generate password with user input
-function generatePassword() {}
+// Function to generate password with the user input
+function generatePassword() {
+  // Creates an empty array for the user password
+  let result = [];
+
+  // Calls the getPasswordOptions() function to get the user's chosen options
+  let choices = getPasswordOptions();
+
+  // groups all characters based on the user's input in a empty array
+  let charArray = [];
+
+  // puts all the passwords characters in a single string
+  if (choices.upperChar) {
+    charArray = charArray.concat(upperCasedCharacters);
+  }
+  if (choices.lowerChar) {
+    charArray = charArray.concat(lowerCasedCharacters);
+  }
+  if (choices.specialChar) {
+    charArray = charArray.concat(specialCharacters);
+  }
+  if (choices.numberChar) {
+    charArray = charArray.concat(numericCharacters);
+  }
+
+  // creates an array with the random characters to create a random password
+  for (let i = 0; i < choices.length; i++) {
+    result.push(getRandom(charArray));
+  }
+  // turns the array into a string
+  let chosenPassword = result.join('');
+
+  return chosenPassword;
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
