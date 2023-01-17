@@ -102,20 +102,31 @@ function getPasswordOptions() {
       'How many characters would you like your password to be? (Min 10 and Max 64)'
     );
   }
-}
-// Prompts the user to choose numbers, lowercase, uppercase, special characters.
-let upperChar = confirm('Click OK to include uppercase characters.');
-let lowerChar = confirm('Click OK to include lowercase characters.');
-let numberChar = confirm('Click OK to include Numbers.');
-let specialChar = confirm('Click OK to include special characters.');
 
-// ! while loop to request user to select one character type.
-while (!upperChar && !lowerChar && !numberChar && !specialChar) {
-  alert('Please select one character type.');
-  specialChar = confirm('Click OK to include special characters.');
-  numberChar = confirm('Click OK to include Number.');
-  lowerChar = confirm('Click OK to include lowercase characters.');
-  upperChar = confirm('Click OK to include uppercase characters.');
+  // Prompts the user to choose numbers, lowercase, uppercase, special characters.
+  let upperChar = confirm('Click OK to include uppercase characters.');
+  let lowerChar = confirm('Click OK to include lowercase characters.');
+  let numberChar = confirm('Click OK to include Numbers.');
+  let specialChar = confirm('Click OK to include special characters.');
+
+  // ! while loop to request user to select one character type.
+  while (!upperChar && !lowerChar && !numberChar && !specialChar) {
+    alert('Please select one character type.');
+    specialChar = confirm('Click OK to include special characters.');
+    numberChar = confirm('Click OK to include Number.');
+    lowerChar = confirm('Click OK to include lowercase characters.');
+    upperChar = confirm('Click OK to include uppercase characters.');
+  }
+
+  // !Return all the user options as key value pairs
+  // create object
+  return {
+    length: length,
+    specialChar: specialChar,
+    numberChar: numberChar,
+    lowerChar: lowerChar,
+    upperChar: upperChar,
+  };
 }
 
 // Function for getting a random element from an array
